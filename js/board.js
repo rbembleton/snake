@@ -1,4 +1,4 @@
-const Snake = require('./snake.js');
+var Snake = require('./snake.js');
 
 function Board() {
   this.snake = new Snake([15,15]);
@@ -8,7 +8,7 @@ function Board() {
   this.gHeight = 30;
   this.isKilled = false;
   this.createGrid();
-  this.objId = Math.floor(Math.random()*1000); 
+  this.objId = Math.floor(Math.random()*1000);
 }
 
 Board.prototype.createGrid = function () {
@@ -22,8 +22,8 @@ Board.prototype.createGrid = function () {
 };
 
 Board.prototype.placeApple = function () {
-  const randX = Math.floor(this.grid.length * Math.random());
-  const randY = Math.floor(this.grid[0].length * Math.random());
+  var randX = Math.floor(this.grid.length * Math.random());
+  var randY = Math.floor(this.grid[0].length * Math.random());
   // this.apples.push([randX, randY]);
   this.apple = [randX, randY];
 

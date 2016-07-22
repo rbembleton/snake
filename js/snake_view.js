@@ -1,5 +1,5 @@
-const Board = require('./board.js');
-const Snake = require('./snake.js');
+var Board = require('./board.js');
+var Snake = require('./snake.js');
 
 function SnakeView (board, $rootEl) {
   this.board = board;
@@ -14,7 +14,7 @@ function SnakeView (board, $rootEl) {
 
 SnakeView.prototype.setupDisplay = function () {
   for (var i = 0; i < this.board.grid.length; i++) {
-    let ul = this.$rootEl.append('<ul class="row"></ul>');
+    var ul = this.$rootEl.append('<ul class="row"></ul>');
     for (var j = 0; j < this.board.grid[i].length; j++) {
       $(ul).append(`<li class="square" pos="[${[i,j]}]"></li>`);
     }
@@ -35,8 +35,9 @@ SnakeView.prototype.raiseSpeed = function () {
 
 SnakeView.prototype.bindKeys = function () {
 
-  let thisSnake = this.board.snake;
-  $(document).keydown( e => {
+  var that = this;
+  var thisSnake = this.board.snake;
+  $(document).keydown( function(e) {
     switch(e.which) {
       case 37: // left
       thisSnake.turn("W");
@@ -61,11 +62,11 @@ SnakeView.prototype.bindKeys = function () {
       default: return; // exit this handler for other keys
     }
     e.preventDefault();
-    this.render();
+    that.render();
   });
 
-  $('.new-game').on("click", event => {
-    this.newGame();
+  $('.new-game').on("click", function(event) {
+    that.newGame();
   });
 
 
@@ -78,10 +79,10 @@ SnakeView.prototype.run = function () {
     this.newGame();
     //this is a sepatate call to kill the board.
   } else {
-    // const callback = this.turn.bind(this);
+    // var callback = this.turn.bind(this);
     // window.setTimeout(callback, this.currentSpeed);
-    const callback = this.turn.bind(this);
-    const currSpeed = this.currentSpeed;
+    var callback = this.turn.bind(this);
+    var currSpeed = this.currentSpeed;
     this.ourTimeout = window.setTimeout(callback, currSpeed);
   }
 };
@@ -96,8 +97,8 @@ SnakeView.prototype.turn = function () {
 
 SnakeView.prototype.render = function () {
 
-  let currSnake = this.board.snake;
-  let currBoard = this.board;
+  var currSnake = this.board.snake;
+  var currBoard = this.board;
 
   $('.tail').removeClass('tail');
 
@@ -109,7 +110,7 @@ SnakeView.prototype.render = function () {
     }
   });
 
-  let applePos = this.board.apple;
+  var applePos = this.board.apple;
   $(`li[pos='[${applePos}]']`).addClass('apple');
 
   if (applePos[0] === currSnake.pos()[0] && applePos[1] === currSnake.pos()[1]) {
