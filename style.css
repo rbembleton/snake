@@ -1,0 +1,111 @@
+.snake-container {
+  width: 330px;
+  height: 330px;
+  margin: auto;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #eaeaea;
+  margin-top: 50px;
+  position: relative;
+}
+
+.square {
+  list-style-type: none;
+  float: left;
+  width: 9px;
+  height: 9px;
+  padding: 0px;
+  margin: 0px;
+  border-style:solid;
+  border-width: 1px;
+  border-color: #f8f8f8;
+  transition: .1s;
+}
+
+.row {
+  clear:left;
+  margin:0px;
+  padding: 0px;
+}
+
+.snake {
+  background-color: #bda0cc;
+  border-radius: 4px;
+}
+
+.apple {
+  background-color: #86bd92;
+  border-radius: 4px;
+}
+
+.score {
+  font-size: 40px;
+  font-family: helvetica;
+  color: #aec3e6;
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  margin: auto;
+  margin-top: 10px;
+  text-align: center;
+  transition: .5s;
+}
+
+.high-score {
+  font-size: 20px;
+  font-family: helvetica;
+  color: #cfd9ea;
+  width: 120px;
+  height: 36px;
+  line-height: 30px;
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  transition: .5s;
+}
+
+.new-game {
+  font-size: 24px;
+  font-family: helvetica;
+  color: #d4dcea;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+  transition: .5s;
+}
+
+.new-game:hover {
+  transition: .5s;
+  font-size: 28px;
+  cursor: pointer;
+  color: #aec3e6;
+}
+
+.score:hover {
+  transition: .5s;
+  font-size: 48px;
+
+}
+
+.high-score:hover {
+  transition: .5s;
+  font-size: 30px;
+  color: #aec3e6;
+}
+
+.tail {
+  background-color: white;
+  border-radius: 6px;
+  transform: rotate3d(1,1,2,180deg);
+  transition: .5s;
+}
+/*
+.final-score {
+  color: #9fbae6;
+  transition: .2s;
+}*/
